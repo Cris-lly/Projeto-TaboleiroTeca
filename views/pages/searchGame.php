@@ -1,3 +1,19 @@
+<?php
+require '../../models/BD/connect.php';
+$conexao = new Conexao();
+$conn = $conexao->obterConexao();
+$sql = "SELECT * FROM jogo";
+$resultado = pg_query($conn, $sql);
+
+if (!$resultado) {
+    die("Erro na consulta ao banco de dados");
+}
+
+$dados = array();
+while ($linha = pg_fetch_assoc($resultado)) {
+    $dados[] = $linha;
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +38,7 @@
     </nav>
     <div class="row  container-fluid container-user m-auto vh-100">
 
-        <div class="col-2 px-0 d-flex align-items-center">
+        <div class="col-2  d-flex align-items-center px-0">
 
             <div class="bg-white border border-secondary rounded shadow-sm mt-5 w-100" style="height: 82%">
 
@@ -35,9 +51,9 @@
                     <ul>
                         <li><a href="#" class="link-secondary">Início</a></li>
                         <li><a href="#" class="link-secondary">Meus aluguéis</a></li>
-                        <li><a href="../pages/searchGame.php" class="link-secondary">Pesquisar jogos</a></li>
+                        <li><a href="#" class="link-secondary">Pesquisar jogos</a></li>
                         <li><a href="#" class="link-secondary">Configuração</a></li>
-                        <li><a href=".../../../../models/auth/logout.php" class="link-secondary">Sair</a></li>
+                        <li><a href="#" class="link-secondary">Sair</a></li>
                     </ul>
 
                 </div>
@@ -45,11 +61,11 @@
             </div>
         </div>
 
-        <div class="col-8 ps-2 d-flex align-items-center">
+        <div class="col-8  d-flex align-items-center ps-2">
             <div class="  mt-5 w-100 px-3" style="height: 82%">
 
                 <div class="row h-25 pb-2">
-                    <div class="col-8 bg-blue h-100 border border-end-0 border-secondary rounded-start">
+                    <div class="col-8 bg-blue h-100 border border-end-0 border-secondary rounded-start" >
                         <p>
                         <h6>Se divirta jogando nossos jogos de Tabuleiro com seus amigos!</h6>
                         Aluguéis de jogos de tabuleiro acessíveis você encontra aqui, na TabuleiroTeca!</p>
@@ -62,32 +78,21 @@
 
 
                 <div class="row h-75 bg-white border border-secondary rounded  shadow-sm">
-                    <div>
-                        <h4 class="text-center pt-4">Aluguel de Jogos de tabuleiro</h4>
-                        <p class="text-center">Uma platagorma feita especialmente para você!</p>
+                    <div style="height: 500px;">
+                    <div class="h-75" style="overflow: auto;"><?php
+                    echo '<pre>';
+                    print_r($dados);
+                    echo '</pre>';
+                    ?></div>
+                    
 
-                        <div class="row w-75 m-auto" style="height: 60%;">
-                            <div class="col-5 border bg-primary  rounded-start p-3">
-                                <div class="h-50 p-3 d-flex justify-content-center">
-
-                                    <img src="../images/21.svg" alt="" srcset="">
-                                </div>
-                                <div class="h-50">
-                                    <h5 class="text-center">Bem-vindo(a)!</h5>
-                                    <p class="text-center">É Bom vê-lo(a) por aqui! Pesquise entre nosso acervo de jogos e se divirta!</p>
-                                </div>
-
-                            </div>
-                            <div class="col-7 bg-danger container-fluid  d-flex align-items-center p-4 rounded-end">
-                                <img src="../images/image 2.svg" alt="" class="container-fluid" srcset="">
-                            </div>
-                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
 
-        <div class="col-2 px-0 d-flex align-items-center">
+        <div class="col-2  d-flex align-items-center px-0">
             <div class=" mt-5 w-100 px-2" style="height: 82%">
                 <div class="row pb-3" style="height:20%">
                     <div class="pt-1 feedback border shadow-generic border-end-0 border-secondary rounded">

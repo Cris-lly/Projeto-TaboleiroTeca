@@ -62,7 +62,7 @@
                 <div class="row h-75 bg-white border border-secondary rounded  shadow-sm">
                     <h3>Cadastre seu jogo aqui</h3>
                     <h4>Informações gerais</h4>
-                    <form action="../../models/game.php" method="post">
+                    <form action="../../controllers/registerGame.php" method="post">
 
                         <div class="mb-1 mt-1">
                             <label for="nome" class="form-label">Nome do jogo</label>

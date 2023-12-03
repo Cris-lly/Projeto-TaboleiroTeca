@@ -1,6 +1,7 @@
 <?php
     require_once '../models/BD/connect.php';
-
+    $pdo = new Conexao();
+    $pdoObj = $pdo->obterObjetoPDO();
     if($_POST['selecao'] == 'locador'){
         
         if(!empty($_POST)){
@@ -9,7 +10,7 @@
                 $sql = "INSERT INTO locador(nome, cpf, email, telefone, senha) 
                         VALUES (:nome, :cpf, :email_cad, :telefone, :senha)";
                 //preparar o sql (PDO)
-                $stmt = $pdo->prepare($sql);
+                $stmt = $pdoObj->prepare($sql);
                 
                 //definir os dados
                 $dados = array(
@@ -39,7 +40,7 @@
                 $sql = "INSERT INTO locatario(nome_locatario, cpf, email, telefone, senha) 
                         VALUES (:nome, :cpf, :email_cad, :telefone, :senha)";
                 //preparar o sql (PDO)
-                $stmt = $pdo->prepare($sql);
+                $stmt = $pdoObj->prepare($sql);
                 
                         
                 //definir os dados

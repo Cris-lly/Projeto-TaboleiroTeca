@@ -1,16 +1,17 @@
 <?php
 session_start();
 require '../BD/connect.php';
-
+$conexao = new Conexao();
+$conn = $conexao->obterConexao();
 $email = $_POST['email'];
-$password = $_POST['senha'];
+$password = md5($_POST['senha']);
 
 $sql_lesse = "select * from locatario where email='" . $email . "' and senha='" . $password . "'";
-$res_lesse = pg_query($conexao, $sql_lesse);
+$res_lesse = pg_query($conn, $sql_lesse);
 $record_lesse = pg_num_rows($res_lesse);
 
 $sql_lessor = "select * from locador where email='" . $email . "' and senha='" . $password . "'";
-$res_lessor = pg_query($conexao, $sql_lessor);
+$res_lessor = pg_query($conn, $sql_lessor);
 $record_lessor = pg_num_rows($res_lessor);
 
 if ($record_lesse == 1) {
