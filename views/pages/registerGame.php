@@ -31,12 +31,12 @@
                 </div>
                 <h5 class="text-center">Nome do usuário</h5>
                 <div class="ps-2">
-                    <ul>
-                        <li><a href="#" class="link-secondary">Início</a></li>
-                        <li><a href="#" class="link-secondary">Meus jogos</a></li>
-                        <li><a href="#" class="link-secondary">Cadastrar jogos</a></li>
-                        <li><a href="#" class="link-secondary">Configuração</a></li>
-                        <li><a href="../../models/auth/logout.php" class="link-secondary">Sair</a></li>
+                    <ul class="list-unstyled ps-4">
+                        <li><a href="../pages/lessor.php" class="link-dark text-decoration-none"><img src="../../views/images/home.svg" class="pb-1 pe-1" style="width: 20px" srcset=""> Início</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none"><img src="../../views/images/HeartStraight.svg" class="pb-1 pe-1" style="width: 18px" srcset="">Meus jogos</a></li>
+                        <li><a href="../pages/registerGame.php" class="link-dark text-decoration-none"><img src="../../views/images/plus-circle.svg" class="pb-1 pe-1" style="width: 20px" srcset=""> Cadastrar jogos</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none"><img src="../../views/images/Gear.svg" class="pb-1 pe-1" style="width: 20px" srcset=""> Configuração</a></li>
+                        <li><a href=".../../../../models/auth/logout.php" class="link-dark text-decoration-none"><img src="../../views/images/SignIn.svg" class="pb-1 pe-1" style="width: 20px" srcset=""> Sair</a></li>
                     </ul>
 
                 </div>
@@ -45,7 +45,7 @@
         <div class="col-8 ps-2 d-flex align-items-center ">
             <div class="  mt-5 w-100 px-3" style="height: 100%">
 
-                <div class="row h-25 pb-2">
+                <div class="row pb-2" style="height: 17%;">
                     <div class="col-8 bg-blue h-100 border border-end-0 border-secondary rounded-start">
                         <p>
                         <h6>Disponibilize jogos para aluguel de forma descomplicada</h6>
@@ -59,52 +59,69 @@
                 </div>
 
 
-                <div class="row h-75 bg-white border border-secondary rounded  shadow-sm">
-                    <h3>Cadastre seu jogo aqui</h3>
-                    <h4>Informações gerais</h4>
-                    <form action="../../controllers/registerGame.php" method="post">
+                <div class="row bg-white border border-secondary rounded  shadow-sm" style="height: 83%;">
 
-                        <div class="mb-1 mt-1">
-                            <label for="nome" class="form-label">Nome do jogo</label>
-                            <input type="text" class="form-control" name="nome" id="nome" placeholder="digite aqui" required>
-                        </div>
-                        <div class="mb-1">
-                            <label for="inputPassword" class="form-label">Categoria</label>
-                            <select class="form-select" aria-label="Default select example" name="categoria" id="categoria">
-                                <option selected>Selecione uma opção</option>
-                                <option value="locador">Locador</option>
-                                <option value="locatario">Locatário</option>
-                            </select>
+                    <div class="col border  rounded-start">
 
-                        </div>
-                        <div class="mb-1">
-                            <label for="inputPassword" class="form-label">Condições do jogo</label>
-                            <select class="form-select" aria-label="Default select example" name="condicao" id="condicao">
-                                <option selected>Selecione uma opção</option>
-                                <option value="locador">Locador</option>
-                                <option value="locatario">Locatário</option>
-                            </select>
+                        <h3 class="fs-5 text-center pt-2" style="color: #E86600;">Cadastre seu jogo aqui</h3>
+                        <h4>Informações gerais</h4>
+                        <form action="../../controllers/registerGame.php" method="post">
 
-                        </div>
-                        <div class="mb-1 mt-1">
-                            <label for="telefone" class="form-label">Telefone</label>
-                            <input type="text" class="form-control" name="telefone" id="telefone" placeholder="(00) 0000-0000" required>
-                        </div>
-                        <div class="mb-1">
-                            <label for="senha" class="form-label">Preço do jogo</label>
-                            <div>
-                                <input type="text" class="form-control" name="preco" id="preco" placeholder="digite aqui" required>
+                            <div class="mb-1 mt-1">
+                                <label for="nome" class="form-label">Nome do jogo</label>
+                                <input type="text" class="form-control" name="nome" id="nome" placeholder="digite aqui" required>
                             </div>
-                        </div>
-                        <div class="mb-1">
-                            <label for="senha" class="form-label">Termos(valor da taxa)</label>
-                            <div>
-                                <input type="text" class="form-control" name="taxa" id="taxa" placeholder="digite aqui" required>
-                            </div>
-                        </div>
-                        <button class="mt-3 btn btn-danger w-100 mb-2" type="submit">Cadastrar</button>
+                            <div class="mb-1">
+                                <label for="inputPassword" class="form-label">Categoria</label>
+                                <select class="form-select" aria-label="Default select example" name="categoria" id="categoria">
+                                    <option selected>Selecione uma opção</option>
+                                    <option value="Antigos">Antigos</option>
+                                    <option value="Economia">Economia</option>
+                                    <option value="Educativos">Educativos</option>
+                                    <option value="Estilo americano">Estilo americano</option>
+                                    <option value="Estrategia">Estratégia</option>
+                                    <option value="Eurogames">Eurogames</option>
+                                    <option value="Fantasia">Fantasia</option>
+                                    <option value="RPG">RPG</option>
+                                </select>
 
-                    </form>
+                            </div>
+                            <div class="mb-1">
+                                <label for="inputPassword" class="form-label">Condições do jogo</label>
+                                <select class="form-select" aria-label="Default select example" name="condicao" id="condicao">
+                                    <option selected>Selecione uma opção</option>
+                                    <option value="otimo">Ótimo</option>
+                                    <option value="danificado">Danificado</option>
+                                </select>
+
+                            </div>
+                            <div class="mb-1 mt-1">
+                                <label for="telefone" class="form-label">Confirme seu telefone</label>
+                                <input type="text" class="form-control" name="telefone" id="telefone" placeholder="(00) 0000-0000" required>
+                            </div>
+                            <div class="mb-1">
+                                <label for="senha" class="form-label">Preço do jogo</label>
+                                <div>
+                                    <input type="text" class="form-control" name="preco" id="preco" placeholder="digite aqui" required>
+                                </div>
+                            </div>
+                            <div class="mb-1">
+                                <label for="senha" class="form-label">Informe o valor da multa em caso de danificação</label>
+                                <div>
+                                    <input type="text" class="form-control" name="taxa" id="taxa" placeholder="digite aqui" required>
+                                </div>
+                            </div>
+                            <button class="mt-3 btn btn-danger text-dark w-100 " type="submit">Cadastrar</button>
+
+                        </form>
+                    </div>
+                    <div class="col bg-danger rounded-end d-flex justify-content-center">
+                        <div class="d-flex align-items-center">
+
+                            <img src="../images/image 5.svg" alt="">
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -135,9 +152,7 @@
                                 <h4 class="fs-6">Notificações</h4>
 
                             </div>
-                            <div class="col">
-                                <button type="button" class="btn btn-warning">Ver todas</button>
-                            </div>
+                           
                         </div>
                         <p>1 nova notificação</p>
                         <div class="p-2 border border-secondary rounded bg-primary">

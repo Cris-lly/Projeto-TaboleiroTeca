@@ -1,20 +1,18 @@
-<?
-require_once '../models/game.php';
-function buscar(){
+<?php
+require '../../models/BD/connect.php';
+$conexao = new Conexao();
+$conn = $conexao->obterConexao();
+$sql = "SELECT jogo.nome , jogo.valor , jogo.categoria, locador.telefone
+        FROM jogo
+        INNER JOIN locador  ON jogo.id_locador = locador.id;";
+$resultado = pg_query($conn, $sql);
 
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        
-        // Chame a função do modelo para processar os dados
-        $modelo = new Game();
-        $resultado = $modelo->buscar();
-    
-        // Faça algo com o resultado, se necessário
-        if ($resultado) {
-            echo "Dados processados com sucesso!";
-        } else {
-            echo "Erro ao processar dados.";
-        }
-    }
+if (!$resultado) {
+    die("Erro na consulta ao banco de dados");
 }
 
+$dados = array();
+while ($linha = pg_fetch_assoc($resultado)) {
+    $dados[] = $linha;
+}
 ?>

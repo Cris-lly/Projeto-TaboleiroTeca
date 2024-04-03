@@ -31,13 +31,14 @@
                 </div>
                 <h5 class="text-center">Nome do usuário</h5>
                 <div class="ps-2">
-                    <ul>
-                        <li><a href="#" class="link-secondary">Início</a></li>
-                        <li><a href="#" class="link-secondary">Meus  jogos</a></li>
-                        <li><a href="../pages/registerGame.php" class="link-secondary">Cadastrar jogos</a></li>
-                        <li><a href="#" class="link-secondary">Configuração</a></li>
-                        <li><a href="../../models/auth/logout.php" class="link-secondary">Sair</a></li>
+                    <ul class="list-unstyled ps-4">
+                        <li><a href="../pages/lessor.php" class="link-dark text-decoration-none"><img src="../../views/images/home.svg" class="pb-1 pe-1" style="width: 20px" srcset=""> Início</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none"><img src="../../views/images/HeartStraight.svg" class="pb-1 pe-1" style="width: 18px" srcset="">Meus jogos</a></li>
+                        <li><a href="../pages/registerGame.php" class="link-dark text-decoration-none"><img src="../../views/images/plus-circle.svg" class="pb-1 pe-1" style="width: 20px" srcset=""> Cadastrar jogos</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none"><img src="../../views/images/Gear.svg" class="pb-1 pe-1" style="width: 20px" srcset=""> Configuração</a></li>
+                        <li><a href=".../../../../models/auth/logout.php" class="link-dark text-decoration-none"><img src="../../views/images/SignIn.svg" class="pb-1 pe-1" style="width: 20px" srcset=""> Sair</a></li>
                     </ul>
+
 
                 </div>
             </div>
@@ -48,7 +49,7 @@
                 <div class="row h-25 pb-2">
                     <div class="col-8 bg-blue h-100 border border-end-0 border-secondary rounded-start">
                         <p>
-                        <h6>Disponibilize jogos para aluguel de forma descomplicada</h6>
+                       <h6>Disponibilize jogos para aluguel de forma descomplicada</h6>
                         Plataforma segura de aluguéis de jogos de tabuleiro você encontra aqui,
                         na TabuleiroTeca!</p>
                     </div>
@@ -61,7 +62,7 @@
 
                 <div class="row h-75 bg-white border border-secondary rounded  shadow-sm">
                     <div>
-                        <h4 class="text-center pt-4">Aluguel de Jogos de tabuleiro</h4>
+                        <h4 class="text-center pt-4" style="color: #E86600;">Aluguel de Jogos de tabuleiro</h4>
                         <p class="text-center">Uma platagorma feita especialmente para você!</p>
 
                         <div class="row w-75 m-auto" style="height: 60%;">
@@ -111,9 +112,7 @@
                                 <h4 class="fs-6">Notificações</h4>
 
                             </div>
-                            <div class="col">
-                                <button type="button" class="btn btn-warning">Ver todas</button>
-                            </div>
+                            
                         </div>
                         <p>1 nova notificação</p>
                         <div class="p-2 border border-secondary rounded bg-primary">

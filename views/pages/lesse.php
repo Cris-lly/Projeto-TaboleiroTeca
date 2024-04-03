@@ -32,12 +32,12 @@
                 </div>
                 <h5 class="text-center">Nome do usuário</h5>
                 <div class="ps-2">
-                    <ul>
-                        <li><a href="#" class="link-secondary">Início</a></li>
-                        <li><a href="#" class="link-secondary">Meus aluguéis</a></li>
-                        <li><a href="../pages/searchGame.php" class="link-secondary">Pesquisar jogos</a></li>
-                        <li><a href="#" class="link-secondary">Configuração</a></li>
-                        <li><a href=".../../../../models/auth/logout.php" class="link-secondary">Sair</a></li>
+                    <ul class="list-unstyled ps-4">
+                        <li><a href="../pages/lesse.php" class="link-dark text-decoration-none"><img src="../../views/images/home.svg" class="pb-1 pe-1" style="width: 20px" srcset=""> Início</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none"><img src="../../views/images/HeartStraight.svg" class="pb-1 pe-1" style="width: 20px" srcset=""> Meus aluguéis</a></li>
+                        <li><a href="../pages/searchGame.php" class="link-dark text-decoration-none"><img src="../../views/images/search.svg" class="pb-1 pe-1" style="width: 20px" srcset=""> Pesquisar jogos</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none"><img src="../../views/images/Gear.svg" class="pb-1 pe-1" style="width: 20px" srcset=""> Configuração</a></li>
+                        <li><a href=".../../../../models/auth/logout.php" class="link-dark text-decoration-none"><img src="../../views/images/SignIn.svg" class="pb-1 pe-1" style="width: 20px" srcset=""> Sair</a></li>
                     </ul>
 
                 </div>
@@ -63,7 +63,7 @@
 
                 <div class="row h-75 bg-white border border-secondary rounded  shadow-sm">
                     <div>
-                        <h4 class="text-center pt-4">Aluguel de Jogos de tabuleiro</h4>
+                        <h4 class="text-center pt-4" style="color: #E86600;">Aluguel de Jogos de tabuleiro</h4>
                         <p class="text-center">Uma platagorma feita especialmente para você!</p>
 
                         <div class="row w-75 m-auto" style="height: 60%;">

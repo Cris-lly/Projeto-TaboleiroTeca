@@ -22,7 +22,6 @@ class Game
         if ($record_lessor == 1) {
             $row = pg_fetch_row($res_lessor);
             $id_locador = $row[0];
-            print_r($id_locador);
             try {
                 $sql = "INSERT INTO jogo (id_locador, nome, categoria, condicao, valor, taxa)
                 VALUES (:id_locador, :nome, :categoria, :condicao, :preco, :taxa)";
@@ -41,8 +40,9 @@ class Game
 
                 //tentar inserir
                 if ($stmt->execute($dados)) {
-                    echo ("<script>alert('Cadastrado com sucesso!')</script>");
-                    header('Location: ./../views/pages/registerGame.php ');
+                    
+                    return true;
+                    exit;
                 }
             } catch (\Exception $e) {
                 print_r("<script>alert('Erro ao se cadastrar!')</script>");
@@ -51,18 +51,6 @@ class Game
     }
     function buscar()
     {
-        $sql = "SELECT * FROM jogo";
-        $resultado = pg_query($this->conn, $sql);
-
-        if (!$resultado) {
-            die("Erro na consulta ao banco de dados");
-        }
-
-        $dados = array();
-        while ($linha = pg_fetch_assoc($resultado)) {
-            $dados[] = $linha;
-        }
-
-        return $dados;
+        print_r('oi');
     }
 }

@@ -19,9 +19,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Faça algo com o resultado, se necessário
     if ($resultado) {
-        echo "Dados processados com sucesso!";
+        echo '<script type="text/javascript">
+                    window.onload = function() {
+                        alert("Cadastrado com sucesso!");
+                        window.location.href = "./../views/pages/registerGame.php";
+                    };
+                    
+                  </script>';
     } else {
-        echo "Erro ao processar dados.";
+        echo '<script type="text/javascript">
+                    window.onload = function() {
+                        alert("Erro ao cadastrar!");
+                        window.location.href = "./../views/pages/registerGame.php";
+                    };
+                  </script>';
     }
 }
 ?>

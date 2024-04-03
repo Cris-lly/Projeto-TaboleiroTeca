@@ -19,7 +19,7 @@ if ($record_lesse == 1) {
     $_SESSION["id_usuario"] = $row[0];
     $_SESSION["email"] = $row[3];
     $_SESSION["senha"] = $row[5];
-
+    echo "<script src='../domUser.js'> </script>";
     header("Location: ../../views/pages/lesse.php");
 }
 if ($record_lessor == 1) {

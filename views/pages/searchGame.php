@@ -1,18 +1,5 @@
 <?php
-require '../../models/BD/connect.php';
-$conexao = new Conexao();
-$conn = $conexao->obterConexao();
-$sql = "SELECT * FROM jogo";
-$resultado = pg_query($conn, $sql);
-
-if (!$resultado) {
-    die("Erro na consulta ao banco de dados");
-}
-
-$dados = array();
-while ($linha = pg_fetch_assoc($resultado)) {
-    $dados[] = $linha;
-}
+require '../../controllers/searchgame.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,6 +12,7 @@ while ($linha = pg_fetch_assoc($resultado)) {
     <script src="../css/bootstrap/js/bootstrap.js"></script>
     <link rel="stylesheet" href="../css/style.css?2.4">
     <link rel="stylesheet" href="../css/lesse.css?1">
+    <link rel="stylesheet" href="../css/searchGame.css">
 </head>
 
 <body class="bg-secondary">
@@ -36,7 +24,7 @@ while ($linha = pg_fetch_assoc($resultado)) {
             </a>
         </div>
     </nav>
-    <div class="row  container-fluid container-user m-auto vh-100">
+    <div class="row  container-fluid container-user m-auto vh-100 ">
 
         <div class="col-2  d-flex align-items-center px-0">
 
@@ -48,12 +36,12 @@ while ($linha = pg_fetch_assoc($resultado)) {
                 </div>
                 <h5 class="text-center">Nome do usuário</h5>
                 <div class="ps-2">
-                    <ul>
-                        <li><a href="#" class="link-secondary">Início</a></li>
-                        <li><a href="#" class="link-secondary">Meus aluguéis</a></li>
-                        <li><a href="#" class="link-secondary">Pesquisar jogos</a></li>
-                        <li><a href="#" class="link-secondary">Configuração</a></li>
-                        <li><a href="#" class="link-secondary">Sair</a></li>
+                    <ul class="list-unstyled ps-4">
+                        <li><a href="../pages/lesse.php" class="link-dark text-decoration-none"><img src="../../views/images/home.svg" class="pb-1 pe-1" style="width: 20px" srcset=""> Início</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none"><img src="../../views/images/HeartStraight.svg" class="pb-1 pe-1" style="width: 20px" srcset=""> Meus aluguéis</a></li>
+                        <li><a href="../pages/searchGame.php" class="link-dark text-decoration-none"><img src="../../views/images/search.svg" class="pb-1 pe-1" style="width: 20px" srcset=""> Pesquisar jogos</a></li>
+                        <li><a href="#" class="link-dark text-decoration-none"><img src="../../views/images/Gear.svg" class="pb-1 pe-1" style="width: 20px" srcset=""> Configuração</a></li>
+                        <li><a href=".../../../../models/auth/logout.php" class="link-dark text-decoration-none"><img src="../../views/images/SignIn.svg" class="pb-1 pe-1" style="width: 20px" srcset=""> Sair</a></li>
                     </ul>
 
                 </div>
@@ -65,27 +53,43 @@ while ($linha = pg_fetch_assoc($resultado)) {
             <div class="  mt-5 w-100 px-3" style="height: 82%">
 
                 <div class="row h-25 pb-2">
-                    <div class="col-8 bg-blue h-100 border border-end-0 border-secondary rounded-start" >
+                    <div class="col-8 bg-blue h-100 border border-end-0 border-secondary rounded-start">
                         <p>
                         <h6>Se divirta jogando nossos jogos de Tabuleiro com seus amigos!</h6>
                         Aluguéis de jogos de tabuleiro acessíveis você encontra aqui, na TabuleiroTeca!</p>
                     </div>
 
                     <div class="col-4 bg-blue h-100 border border-start-0 border-secondary rounded-end">
-                        <img src="../images/Frame 140.png" class="float-end" alt="" srcset="" style="height:95%">
+                        <img src="../images/Frame 140.svg" class="float-end" alt="" srcset="" style="height:95%">
                     </div>
                 </div>
 
 
                 <div class="row h-75 bg-white border border-secondary rounded  shadow-sm">
                     <div style="height: 500px;">
-                    <div class="h-75" style="overflow: auto;"><?php
-                    echo '<pre>';
-                    print_r($dados);
-                    echo '</pre>';
-                    ?></div>
-                    
+                        <h2 class='fs-4 text-center pt-3'>Os melhores Jogos de tabuleiro você encontra aqui!</h2>
+                        <p class='text-secondary text-center'>Pesquise entre nosso acervo de jogos de tabuleiro e divirta-se!</p>
+                        <div class="scroll " style="height: 65%;">
 
+
+                            <div style="direction: ltr;">
+                                <?php
+                                foreach ($dados as $linha) {
+                                    echo "
+                                    <div class='card m-2 border-dark shadow-sm'>
+                                        <h5 class='card-header bg-blue'>{$linha['categoria']}</h5>
+                                        <div class='card-body'>
+                                            <h5 class='card-title'>{$linha['nome']}</h5>
+                                            <p class='card-text'>Contato:{$linha['telefone']} </p>
+                                            <p class='card-text'>Preço:{$linha['valor']} </p>
+                                            
+                                        </div>
+                                    </div>";
+                                }
+                                ?>
+                            </div>
+
+                        </div>
                     </div>
 
                 </div>
